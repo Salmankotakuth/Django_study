@@ -1,4 +1,5 @@
 <H1 align="center"> Django Application</H1>
+
 ## Steps To Start a Django Application
 # 1. Install DataBase
 [`Referenace Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
@@ -28,7 +29,7 @@ mysite/
         asgi.py
         wsgi.py
 ```
-5. The development server
+# 5. The development server
 ```
 python manage.py runserver
 ```
