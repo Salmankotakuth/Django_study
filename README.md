@@ -33,4 +33,5 @@ mysite/
 ```
 python manage.py runserver
 ```
+After running this if you go to "HTTP://localhost:8000" You will get the below given page running in your localhost.
 ![](./Capture.PNG)
