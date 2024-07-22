@@ -33,3 +33,4 @@ mysite/
 ```
 python manage.py runserver
 ```
+![](./capture.png)
