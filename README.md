@@ -35,10 +35,10 @@ python manage.py runserver
 ```
 After running this if you go to "HTTP://localhost:8000" You will get the below-given page running in your localhost.
 ![](./Capture.PNG)
-# 6. Creating the Polls app
+# 6. Creating the app
 To create your app, make sure you’re in the same directory as manage.py and type this command:
 ```
-python manage.py startapp polls
+python manage.py startapp projectApp
 ```
 # 7. Database setup
 In settings.py update the database as Postgresql
