@@ -15,7 +15,7 @@ python -m django --version
 If Django is installed, you should see the version of your installation. If it isn’t, you’ll get an error telling “No module named django”.
 # 4. Creating a project
 ```
-django-admin startproject mysite
+django-admin startproject myProject
 ```
 This will create a mysite directory in your current directory.
 Let’s look at what startproject created:
@@ -35,10 +35,23 @@ python manage.py runserver
 ```
 After running this if you go to "HTTP://localhost:8000" You will get the below-given page running in your localhost.
 ![](./Capture.PNG)
-# 6. Creating the app
+# 6. Creating a new app
 To create your app, make sure you’re in the same directory as manage.py and type this command:
 ```
 python manage.py startapp projectApp
+```
+# 7. Add the new app to the project
+By adding app path in urls.py of project folder (myProject).
+```
+from django.contrib import admin
+from django.urls import path, include
+ 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # Enter the app name in following
+    # syntax for this to work
+    path('', include("projectApp.urls")),        # newly added line
+]
 ```
 # 7. Database setup
 In settings.py update the database as Postgresql
