@@ -33,5 +33,24 @@ mysite/
 ```
 python manage.py runserver
 ```
-After running this if you go to "HTTP://localhost:8000" You will get the below given page running in your localhost.
+After running this if you go to "HTTP://localhost:8000" You will get the below-given page running in your localhost.
 ![](./Capture.PNG)
+# 6. Creating the Polls app
+To create your app, make sure you’re in the same directory as manage.py and type this command:
+```
+python manage.py startapp polls
+```
+# 7. Database setup
+In settings.py update the database as Postgresql
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "mydatabase",
+        "USER": "mydatabaseuser",
+        "PASSWORD": "mypassword",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+```
