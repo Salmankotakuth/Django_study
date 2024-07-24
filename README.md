@@ -155,7 +155,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
         return render(request, 'index.html')
     ```
 
-## <h2 align="center">Create Admin User and Sub Users</h2>
+## <h2 align="center">Create Admin User and Sub Users in Django</h2>
 
 **10. create an admin user**
 
@@ -182,14 +182,15 @@ To create an admin user in Django, follow these steps:
   
 ## <h2 align="center">Create Management Software Using Django For An Educational Institution </h2>
 
-**8. Install DataBase**
+**1. Install DataBase**
 
 Install Postgresql database
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
 
-**9. Set Up Django with PostgreSQL**
+**2. Set Up Django with PostgreSQL**
 
-In settings.py update the database as Postgresql
+In settings.py update the database as your Postgresql
+
 ```
 DATABASES = {
     "default": {
@@ -202,3 +203,124 @@ DATABASES = {
     }
 }
 ```
+
+**3. Create a Django Model for Table**
+
+Define a model for the table you want to create. For example, if you want to create a table for storing student information:
+```
+# myapp/models.py
+from django.db import models
+
+class Student(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    enrollment_date = models.DateField()
+    grade = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+```
+
+**4. Add Your App to INSTALLED_APPS**
+
+Open your project's settings.py and add your app (e.g., projectApp) to the INSTALLED_APPS list.
+
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'projectApp',          # Add your app here
+]
+```
+
+**5. Create and Apply Migrations**
+
+Generate and apply the migrations to create the table in the PostgreSQL database:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+**6. Create a frontend View to Retrieve Data**
+
+Create a view to fetch data from the Student model and pass it to the template, in views.py in app folder.
+
+```
+# myapp/views.py
+from django.shortcuts import render
+from .models import Student
+
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, 'projectApp/student_list.html', {'students': students})
+
+```
+
+**7. Create a URL Pattern**
+
+Add a URL pattern to route requests to the view in urls.py of app folder
+
+```
+# myapp/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('students/', views.student_list, name='student_list'),
+]
+```
+
+**8. Create a frontend HTML Template to Display Data**
+
+Create a template to display the data in an HTML table
+
+```
+<!-- myapp/templates/myapp/student_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Enrollment Date</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.enrollment_date }}</td>
+                <td>{{ student.grade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+```
+
+**9. Run the Development Server**
+
+Start the Django development server:
+
+```
+python manage.py runserver
+
+```
+Open a web browser and navigate to http://127.0.0.1:8000/students/ to view the student list table.
