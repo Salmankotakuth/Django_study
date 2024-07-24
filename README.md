@@ -206,9 +206,9 @@ DATABASES = {
 
 **3. Create a Django Model for Table**
 
-Define a model for the table you want to create. For example, if you want to create a table for storing student information:
+Define a model for the table you want to create in models.py of the app folder. For example, if you want to create a table for storing student information:
 ```
-# myapp/models.py
+# peojectApp/models.py
 from django.db import models
 
 class Student(models.Model):
