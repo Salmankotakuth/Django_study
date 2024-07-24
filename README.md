@@ -324,3 +324,5 @@ python manage.py runserver
 
 ```
 Open a web browser and navigate to http://127.0.0.1:8000/students/ to view the student list table.
+
+
