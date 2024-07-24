@@ -155,6 +155,27 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
         return render(request, 'index.html')
     ```
 
+**10. create an admin user**
+
+To create an admin user in Django, follow these steps:
+
+- Run the Create Superuser Command:
+  Open your terminal and navigate to your Django project directory. Then run the following command:
+  ```
+  python manage.py createsuperuser
+  ```
+  
+- Enter the Superuser Details:
+  You will be prompted to enter a username, email address, and password for the superuser. Fill in the required details.
+    ```
+    Username: admin
+    Email address: admin@example.com
+    Password: **********
+    Password (again): **********
+    ```
+    
+  - Access the Admin Interface:
+    Start the Django development server if it's not already running, Open a web browser and navigate to http://127.0.0.1:8000/admin/. Use the superuser credentials you just created to log in.
 
 **8. Install DataBase**
 
