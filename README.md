@@ -178,23 +178,23 @@ To create an admin user in Django, follow these steps:
 
     Start the Django development server if it's not already running, Open a web browser and navigate to http://127.0.0.1:8000/admin/. Use the superuser credentials you just created to log in.
   
-## <center>Create Management Software Using Django For An Educational Institution </center>
+<center> ## Create Management Software Using Django For An Educational Institution </center>
 
 **8. Install DataBase**
 
 Install Postgresql database
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
 
-**9. Database setup**
+**9. Set Up Django with PostgreSQL**
 
 In settings.py update the database as Postgresql
 ```
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mydatabase",
-        "USER": "mydatabaseuser",
-        "PASSWORD": "mypassword",
+        "NAME": "postgres",        # Your db name
+        "USER": "postgres",        # Your db user name
+        "PASSWORD": "Password",    # Your db password
         "HOST": "127.0.0.1",
         "PORT": "5432",
     }
