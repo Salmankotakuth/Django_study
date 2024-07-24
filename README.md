@@ -326,4 +326,124 @@ python manage.py runserver
 ```
 Open a web browser and navigate to http://127.0.0.1:8000/students/ to view the student list table.
 
+**10. Create a Frontend Form to add new Students.**
 
+To allow adding new students to the table from the frontend, you can create a form in Django and display it on the frontend. Users can fill out this form to add new student records to the database. Here are the steps to achieve this:
+
+- Create a file named forms.py in the app folder
+  ```
+  # myapp/forms.py
+from django import forms
+from .models import Student
+
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['first_name', 'last_name', 'enrollment_date', 'grade']
+```
+
+- Create a View to Handle the Form:
+
+Create a view in views.py to handle displaying and processing the form.
+
+```
+# myapp/views.py
+from django.shortcuts import render, redirect
+from .forms import StudentForm
+from .models import Student
+
+def add_student(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('student_list')
+    else:
+        form = StudentForm()
+    return render(projectApp, 'myapp/add_student.html', {'form': form})
+
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, 'projectApp/student_list.html', {'students': students})
+```
+- Create a frontend HTML file for Adding new students
+
+```
+<!-- myapp/templates/myapp/add_student.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add New Student</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Student</button>
+    </form>
+    <a href="{% url 'student_list' %}">Back to Student List</a>
+</body>
+</html>
+```
+
+- Include add_student link in student_list.html
+  ```
+      <!-- myapp/templates/myapp/student_list.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student List</title>
+    </head>
+    <body>
+        <h1>Student List</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Enrollment Date</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.enrollment_date }}</td>
+                    <td>{{ student.grade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'add_student' %}">Add New Student</a>
+    </body>
+    </html>
+    ```
+  - Add URL Patterns:
+    Update your urls.py to include paths for adding students and viewing the student list.
+
+    ```
+    # myapp/urls.py
+    from django.urls import path
+    from . import views
+    
+    urlpatterns = [
+        path('students/', views.student_list, name='student_list'),
+        path('students/add/', views.add_student, name='add_student'),
+    ]
+
+    ```
+    - Run the Development Server:
+
+      Start the Django development server:
+      ```
+      python manage.py runserver
+      ```
+    - Access the Add Student Form:
+      Open a web browser and navigate to http://127.0.0.1:8000/students/add/ to access the form for adding new students.
