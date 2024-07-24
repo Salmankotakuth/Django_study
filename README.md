@@ -93,6 +93,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
 
 **9. Create first index.html frontend**
 - Create a Template Directory:
+  
   Ensure you have a templates directory within your Django app directory. If you don't have one, create it.
   ```
   myapp/
@@ -101,6 +102,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
 
   ```
 - Add the Template Directory to Settings:
+  
   In your Django project's settings.py, add the TEMPLATES directory if it's not already set up:
   Update the code as shown below
   ```
@@ -121,29 +123,31 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
     ]
   ```
 - Create the index.html File:
-Create an index.html file within the templates/ directory.
-```
-<!-- myapp/templates/myapp/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Page</title>
-</head>
-<body>
-    <h1>Welcome to MyApp</h1>
-</body>
-</html>
-```
+  
+  Create an index.html file within the templates/ directory.
+    ```
+    <!-- myapp/templates/myapp/index.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index Page</title>
+    </head>
+    <body>
+        <h1>Welcome to MyApp</h1>
+    </body>
+    </html>
+    ```
 - Create a View for the Index Page:
-In your app's views.py, create a view that will render the index.html template.
-```
-from django.shortcuts import render
-
-def index(request):
-    return render(request, 'index.html')
-```
+  
+  In your app's views.py, create a view that will render the index.html template.
+    ```
+    from django.shortcuts import render
+    
+    def index(request):
+        return render(request, 'index.html')
+    ```
 
 
 **8. Install DataBase**
