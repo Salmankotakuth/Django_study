@@ -32,6 +32,7 @@ mysite/
 ```
 
 **4. Run the server**
+
 Run the command in the terminal to run our Django server.
 ```
 python manage.py runserver
@@ -40,12 +41,14 @@ After running this if you go to "HTTP://localhost:8000" You will get the below-g
 ![](./Capture.PNG)
 
 **5. Creating a new app**
+
 To create your app, make sure you’re in the same directory as manage.py and type this command:
 ```
 python manage.py startapp projectApp
 ```
 
 **6. Add the new app to the project**
+
 By adding app path in urls.py inside the project folder (myProject).
 ```
 from django.contrib import admin
@@ -59,6 +62,7 @@ urlpatterns = [
 Now You can use the default MVT model to create URLs, models, views, etc. in your app and they will be automatically included in your main project.
 
 **7. Create urls.py in the App folder**
+
 Include the following code in the urls.py for 
 ```
 from django.urls import path
@@ -71,6 +75,7 @@ urlpatterns=[
 ```
 
 **8. Add the first index function for frontend in the views.py**
+
 In Django, We will define all our frontend webpages as functions in views.py
 The above code will call or invoke the function which is defined in the views.py file so that it can be seen properly in the Web browser. 
 Add the following code in views.py of App directory:-
