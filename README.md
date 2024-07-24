@@ -7,11 +7,13 @@
 python -m pip install Django
 ```
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#installing-official-release)
+
 **2. Verify Django Installation**
 ```
 python -m django --version
 ```
-If Django is installed, you should see the version of your installation. If it isn’t, you’ll get an error telling “No module named django”.
+If Django is installed, you should see the version of your installation. If it isn’t, you’ll get an error telling “No module named Django”.
+
 **3. Creating a project**
 ```
 django-admin startproject myProject
