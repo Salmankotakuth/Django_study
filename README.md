@@ -246,36 +246,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-**6. Create a frontend View to Retrieve Data**
-
-Create a view to fetch data from the Student model and pass it to the template, in views.py in app folder.
-
-```
-# myapp/views.py
-from django.shortcuts import render
-from .models import Student
-
-def student_list(request):
-    students = Student.objects.all()
-    return render(request, 'projectApp/student_list.html', {'students': students})
-
-```
-
-**7. Create a URL Pattern**
-
-Add a URL pattern to route requests to the view in urls.py of app folder
-
-```
-# myapp/urls.py
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('students/', views.student_list, name='student_list'),
-]
-```
-
-**8. Create a frontend HTML Template to Display Data**
+**6. Create a frontend HTML Template to Display Data**
 
 Create a template to display the data in an HTML table
 
@@ -313,6 +284,36 @@ Create a template to display the data in an HTML table
 </body>
 </html>
 
+```
+
+
+**7. Create a frontend View to Retrieve Data**
+
+Create a view to fetch data from the Student model and pass it to the template, in views.py in app folder.
+
+```
+# myapp/views.py
+from django.shortcuts import render
+from .models import Student
+
+def student_list(request):
+    students = Student.objects.all()
+    return render(request, 'projectApp/student_list.html', {'students': students})
+
+```
+
+**8. Create a URL Pattern**
+
+Add a URL pattern to route requests to the view in urls.py of app folder
+
+```
+# myapp/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('students/', views.student_list, name='student_list'),
+]
 ```
 
 **9. Run the Development Server**
