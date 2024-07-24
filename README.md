@@ -155,6 +155,8 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
         return render(request, 'index.html')
     ```
 
+## <h2 align="center">Create Admin User and Sub Users</h2>
+
 **10. create an admin user**
 
 To create an admin user in Django, follow these steps:
