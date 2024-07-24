@@ -184,7 +184,7 @@ To create an admin user in Django, follow these steps:
 
 **1. Install DataBase**
 
-Install Postgresql database
+Install the Postgresql database and configure pgAdmin 4 in system, which is already installed. Create a new database.
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
 
 **2. Set Up Django with PostgreSQL**
