@@ -1,19 +1,18 @@
 <H1 align="center"> Django Application</H1>
 
 ## Steps To Start a Django Application
-# 1. Install DataBase
-[`Referenace Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
-# 2. Install Django
+
+**1. Install Django**
 ```
 python -m pip install Django
 ```
-[`Referenace Link`](https://docs.djangoproject.com/en/5.0/topics/install/#installing-official-release)
-# 3. Verify Django Installation
+[`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#installing-official-release)
+**2. Verify Django Installation**
 ```
 python -m django --version
 ```
 If Django is installed, you should see the version of your installation. If it isn’t, you’ll get an error telling “No module named django”.
-# 4. Creating a project
+**3. Creating a project**
 ```
 django-admin startproject myProject
 ```
@@ -75,8 +74,9 @@ After adding the above code, go to the settings.py file which is in the project 
 ```
 ROOT_URLCONF = 'app.urls'
 ```
-And then you can run the server(127.0.0.1:8000) and you will get the desired output.
-
+And then you can run the server(127.0.0.1:8000) and you will get the desired output - "Hello Greeks".
+# 1. Install DataBase
+[`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
 # 7. Database setup
 In settings.py update the database as Postgresql
 ```
