@@ -78,6 +78,7 @@ urlpatterns=[
 
 In Django, We will define all our frontend webpages as functions in views.py
 The above code will call or invoke the function which is defined in the views.py file so that it can be seen properly in the Web browser. 
+
 Add the following code in views.py of App directory:-
 ```
 from django.http import HttpResponse
