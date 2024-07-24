@@ -3,6 +3,7 @@
 ## Steps To Start a Django Application
 
 **1. Install Django**
+
 ```
 python -m pip install Django
 ```
@@ -39,6 +40,7 @@ python manage.py runserver
 ```
 After running this if you go to "HTTP://localhost:8000" You will get the below-given page running in your localhost.
 ![](./Capture.PNG)
+
 
 **5. Creating a new app**
 
@@ -93,6 +95,7 @@ ROOT_URLCONF = 'mysite.urls'
 And then you can run the server(127.0.0.1:8000) and you will get the desired output - "Hello Greeks".
 
 **9. Create first index.html frontend**
+
 - Create a Template Directory:
   
   Ensure you have a templates directory within your Django app directory. If you don't have one, create it.
@@ -123,6 +126,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
     },
     ]
   ```
+  
 - Create the index.html File:
   
   Create an index.html file within the templates/ directory.
@@ -140,6 +144,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
     </body>
     </html>
     ```
+    
 - Create a View for the Index Page:
   
   In your app's views.py, create a view that will render the index.html template.
