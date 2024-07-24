@@ -157,17 +157,20 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
 
 ## <h2 align="center">Create Admin User and Sub Users in Django</h2>
 
+
 **10. create an admin user**
 
 To create an admin user in Django, follow these steps:
 
 - Run the Create Superuser Command:
+  
   Open your terminal and navigate to your Django project directory. Then run the following command:
   ```
   python manage.py createsuperuser
   ```
   
 - Enter the Superuser Details:
+  
   You will be prompted to enter a username, email address, and password for the superuser. Fill in the required details.
     ```
     Username: admin
@@ -331,16 +334,17 @@ Open a web browser and navigate to http://127.0.0.1:8000/students/ to view the s
 To allow adding new students to the table from the frontend, you can create a form in Django and display it on the frontend. Users can fill out this form to add new student records to the database. Here are the steps to achieve this:
 
 - Create a file named forms.py in the app folder
+  
   ```
-  # myapp/forms.py
-from django import forms
-from .models import Student
-
-class StudentForm(forms.ModelForm):
-    class Meta:
-        model = Student
-        fields = ['first_name', 'last_name', 'enrollment_date', 'grade']
-```
+    # myapp/forms.py
+    from django import forms
+    from .models import Student
+    
+    class StudentForm(forms.ModelForm):
+        class Meta:
+            model = Student
+            fields = ['first_name', 'last_name', 'enrollment_date', 'grade']
+  ```
 
 - Create a View to Handle the Form:
 
@@ -366,6 +370,7 @@ def student_list(request):
     students = Student.objects.all()
     return render(request, 'projectApp/student_list.html', {'students': students})
 ```
+
 - Create a frontend HTML file for Adding new students
 
 ```
@@ -390,6 +395,7 @@ def student_list(request):
 ```
 
 - Include add_student link in student_list.html
+  
   ```
       <!-- myapp/templates/myapp/student_list.html -->
     <!DOCTYPE html>
@@ -426,6 +432,7 @@ def student_list(request):
     </html>
     ```
   - Add URL Patterns:
+    
     Update your urls.py to include paths for adding students and viewing the student list.
 
     ```
@@ -439,6 +446,7 @@ def student_list(request):
     ]
 
     ```
+    
     - Run the Development Server:
 
       Start the Django development server:
@@ -446,4 +454,5 @@ def student_list(request):
       python manage.py runserver
       ```
     - Access the Add Student Form:
+    - 
       Open a web browser and navigate to http://127.0.0.1:8000/students/add/ to access the form for adding new students.
