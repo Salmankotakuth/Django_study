@@ -113,7 +113,7 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
             ],
         },
     },
-]
+    ]
   ```
 - Create the index.html File:
 Create an index.html file within the templates/ directory.
@@ -139,7 +139,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 ```
-- Configure URL Patterns:
+
 
 **8. Install DataBase**
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
