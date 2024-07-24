@@ -14,7 +14,7 @@ python -m django --version
 ```
 If Django is installed, you should see the version of your installation. If it isn’t, you’ll get an error telling “No module named Django”.
 
-**3. Creating a project**
+**3. Creating a new project**
 ```
 django-admin startproject myProject
 ```
@@ -30,18 +30,21 @@ mysite/
         asgi.py
         wsgi.py
 ```
-# 5. The development server
+
+**4. The development server**
 ```
 python manage.py runserver
 ```
 After running this if you go to "HTTP://localhost:8000" You will get the below-given page running in your localhost.
 ![](./Capture.PNG)
-# 6. Creating a new app
+
+**5. Creating a new app**
 To create your app, make sure you’re in the same directory as manage.py and type this command:
 ```
 python manage.py startapp projectApp
 ```
-# 7. Add the new app to the project
+
+**6. Add the new app to the project**
 By adding app path in urls.py inside the project folder (myProject).
 ```
 from django.contrib import admin
@@ -55,7 +58,8 @@ urlpatterns = [
 ]
 ```
 Now You can use the default MVT model to create URLs, models, views, etc. in your app and they will be automatically included in your main project.
-# 8. Create urls.py in the App folder
+
+**7. Create urls.py in the App folder**
 Include the following code
 ```
 from django.urls import path
@@ -77,9 +81,11 @@ After adding the above code, go to the settings.py file which is in the project 
 ROOT_URLCONF = 'app.urls'
 ```
 And then you can run the server(127.0.0.1:8000) and you will get the desired output - "Hello Greeks".
-# 1. Install DataBase
+
+**8. Install DataBase**
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
-# 7. Database setup
+
+**9. Database setup**
 In settings.py update the database as Postgresql
 ```
 DATABASES = {
