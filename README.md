@@ -152,9 +152,12 @@ And then you can run the server(127.0.0.1:8000) and you will get the desired out
 
 
 **8. Install DataBase**
+
+Install Postgresql database
 [`Reference Link`](https://docs.djangoproject.com/en/5.0/topics/install/#database-installation)
 
 **9. Database setup**
+
 In settings.py update the database as Postgresql
 ```
 DATABASES = {
