@@ -456,3 +456,5 @@ def student_list(request):
     - Access the Add Student Form:
     - 
       Open a web browser and navigate to http://127.0.0.1:8000/students/add/ to access the form for adding new students.
+
+**Simple Django Tutorials from scratch to advance: https://www.w3schools.com/django/index.php**
